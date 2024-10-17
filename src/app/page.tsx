@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import styles from "./Home.module.css";
 export default function Home() {
 
@@ -11,14 +10,17 @@ export default function Home() {
     let unfinished = false;
     formInputs.forEach((formInput) => {
       if (formInput.required === true && (formInput.value === null || formInput.value === " " || formInput.value === "")  ) {
-        formInput.required === true ? formInput.classList.add(`${styles.requirementFailed}`) : ""; 
+        formInput.classList.add(`${styles.requirementFailed}`);
         unfinished = true;
 
       }
       console.log(formInput.value)
     }) 
 
-    unfinished ? unmetRequirement?.classList.add(`${styles.unmet}`) : "";
+    if (unmetRequirement && unfinished) {
+      unmetRequirement.classList.add(`${styles.unmet}`);
+    }
+    
   }
   return (
     <main>
@@ -49,7 +51,7 @@ export default function Home() {
 
         <input type="submit" className={styles.formSubmit} name="Submit Report" onClick={add_shark}></input>
 
-        <p className={styles.requirementsNotMet}>Please enter all the requied information.</p>
+        <p className={styles.requirementsNotMet}>Please enter all the required information.</p>
       </div>
 
       <div className={styles.media}>
