@@ -26,6 +26,7 @@
     margin: .5vw;
     width: 20vw;
     text-align: center;
+    border: 1px solid rgb(59, 59, 59);
 }
 
 .inputHeader {
@@ -66,7 +67,9 @@
     border-radius: .5vw;
     color: white;
     transition: background-color ease .5s;
+    cursor: pointer;
 }
+
 
 .formSubmit:hover {
     background-color: rgb(35, 35, 85);
@@ -81,6 +84,23 @@
     display: none;
 }
 
+.formSubmit:required:valid .requirementFailed {
+    color: none;
+    border: 1px solid rgb(59, 59, 59);
+}
+
 .unmet {
     display: block;
 }
+
+.submittedReport {
+    color: rgb(71, 119, 71);
+    font-size: 1vw;
+    margin-top: 0.25vw;
+    display: none;
+}
+
+.met {
+    display: block;
+}
+
